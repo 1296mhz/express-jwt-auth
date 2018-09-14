@@ -4,8 +4,6 @@ const _ = require('underscore');
 const User = require('../models/User');
 const config = require('../../config');
 
-
-
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.send('Hello! The API is at http://localhost:' + port + '/api');

@@ -4,11 +4,12 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const config = require('../../config');
 
-// http://localhost:8080/api/authenticate
+// http://localhost:3001/api/authenticate
 apiRoutes.post('/authenticate', async function (req, res) {
+    console.log(req.body)
    try {
       const user = await User.findOne({
-         name: req.body.name
+         name: req.body.username
       });
 
       if (!user) {
@@ -32,6 +33,7 @@ apiRoutes.post('/authenticate', async function (req, res) {
             res.json({
                success: true,
                message: 'Enjoy your token!',
+               username: user.name,
                token: token
             });
          }

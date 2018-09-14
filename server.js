@@ -3,7 +3,7 @@ const app         = express();
 const bodyParser  = require('body-parser');
 const morgan      = require('morgan');
 const mongoose    = require('mongoose');
-
+const cors        = require('cors');
 const config = require('./config');
 const User   = require('./app/models/User');
 
@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 
 // use morgan to log requests to the console
 app.use(morgan('dev'));
-
+app.use(cors());
 app.get('/', function(req, res) {
     res.send('Hello! The API is at http://localhost:' + port + '/api');
 });
