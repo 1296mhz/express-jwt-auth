@@ -12,9 +12,12 @@ const apiRoutes = require('./app/routes/api');
 
 var port = process.env.PORT || 3001;
 
-mongoose.connect(config.database, { useNewUrlParser: true }); // connect to database
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
+mongoose.connect(config.database, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+});
+
 app.set('superSecret', config.secret); // secret variable
 
 // use body parser so we can get info from POST and/or URL parameters

@@ -19,7 +19,9 @@ router.get('/setup/:name', async function (req, res) {
   const user = new User({
     name: userName,
     password: 'password',
-    admin: true
+    admin: true,
+    balance: 0,
+    inventories: [],
   });
 
   try {

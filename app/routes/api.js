@@ -8,6 +8,7 @@ const config = require('../../config');
 apiRoutes.post('/authenticate', async function (req, res) {
     console.log(req.body)
    try {
+    console.log("*");
       const user = await User.findOne({
          name: req.body.username
       });
@@ -84,7 +85,9 @@ apiRoutes.get('/', function (req, res) {
 
 // route to return all users (GET http://localhost:8080/api/users)
 apiRoutes.get('/users', async function (req, res) {
+    console.log("*");
    const users = await User.find();
+
    if (users) {
       res.json(users);
    } else {
